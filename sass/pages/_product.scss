@@ -1,12 +1,25 @@
-.items {
+body {
+    background-image: linear-gradient(to bottom, #b2c8e8, #c0c8e7, #cbc9e4, #d5cae1, #dcccde);
+}
+
+.items,
+.loading {
     padding: 50px;
 }
 
 .item {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
+    height: 400px;
     gap: 50px;
     align-items: center;
+}
+
+.loading__items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
 }
 
 .item__infos {
@@ -15,8 +28,128 @@
     gap: 10px;
 }
 
+.loading__img {
+    width: 40vw;
+}
+
 .item__img {
+    width: 100%;
+
     img {
         width: 100%;
+        height: 500px;
+    }
+}
+
+.loading__title {
+    width: 35vw;
+    height: 26px;
+    margin-top: 10px;
+    background: red;
+}
+
+.loading__title:last-child {
+    width: 60%;
+}
+
+.loading__title:nth-child(2) {
+    width: 60%;
+}
+
+.bg__animation {
+    background: linear-gradient(90deg, #ddd, #aaa, #ddd);
+    background-size: 200%;
+    animation: bgMove 1s linear 0s infinite;
+}
+
+.product {
+    position: relative;
+}
+
+.btn__home {
+    position: absolute;
+    padding: 10px 20px;
+    border: 1px solid black;
+    background: black;
+    color: white;
+    font-size: 22px;
+    top: 60px;
+    right: 120px;
+}
+
+@keyframes bgMove {
+    to {
+        background-position: 200%;
+    }
+}
+
+@media(max-width:1000px) {
+    .item {
+        padding-bottom: 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        height: 400px;
+        gap: 50px;
+        align-items: center;
+    }
+
+    .loading__items {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .loading__img {
+        width: 90vw;
+    }
+
+    .loading__title {
+        width: 70vw;
+        text-align: start;
+    }
+
+    .item__img {
+        width: 100%;
+
+        img {
+            width: 100%;
+            height: 350px;
+        }
+    }
+
+    .btn__home {
+        width: 100px;
+        position: absolute;
+        padding: 10px 20px;
+        border: 1px solid black;
+        background: black;
+        color: white;
+        font-size: 22px;
+        top: 40px;
+        left: 20px;
+    }
+}
+
+@media (max-width:600px) {
+
+    .items,
+    .loading {
+        padding: 10px;
+    }
+}
+
+@media (max-width:400px) {
+
+    .btn__home {
+        width: 100px;
+        position: absolute;
+        padding: 10px 20px;
+        border: 1px solid black;
+        background: black;
+        color: white;
+        font-size: 18px;
+        top: 10px;
+        left: 20px;
     }
 }

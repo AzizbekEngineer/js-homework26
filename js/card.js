@@ -1,6 +1,7 @@
 const API_URL = 'https://fakestoreapi.com'
 let items = document.querySelector('.items')
-console.log(api);
+const loading = document.querySelector('.loading')
+
 
 
 async function fetchData(URL) {
@@ -14,25 +15,28 @@ async function fetchData(URL) {
         .json()
         .then(res => createContent(res))
         .catch(err => console.log(err))
+        .finally(() => {
+            loading.style.display = 'none'
+        })
 }
 fetchData(API_URL)
 
 function createContent(data) {
+    console.log(data);
     items.innerHTML = `
                 <div class="item">
                     <div class="item__img">
-                        <img src="${data.img}"
+                        <img src="${data.image}"
                         alt="">
                         <br>
                     </div>
                     <div class="item__infos">
-                        <h3>${data.name}</h3>
-                        <p>${data.info}</p>
-                        <p>${data.createdAt.split("T")[0]}</p>
-                        <p>${data.updatedAt.split('T')[0]}</p>
-                        <p>${data.category}</p>
-                        <p>${data.size}</p>
-                        <p>${data.price}</p>
+                        <h3><b>Name:</b>${data.title}</h3>
+                        <p><b>Price:</b>${data.price}</p>
+                        <p><b>Count:</b>${data.rating.count}</p>
+                        <p><b>Rate:</b>${data.rating.rate}</p>
+                        <p><b>Category:</b>${data.category}</p>
+                        <p><b>Product Info:</b>${data.description}</p>
                     </div>
                 </div>
     `
