@@ -1,0 +1,22 @@
+.items {
+    padding: 50px;
+}
+
+.item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    align-items: center;
+}
+
+.item__infos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item__img {
+    img {
+        width: 100%;
+    }
+}
